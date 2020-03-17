@@ -1,0 +1,12 @@
+Name: Safwan Hossain
+Student ID: 0918742
+Email: safwan@uoguelph.ca
+
+*********************************************
+Compile and run File
+*********************************************
+
+Compile: Go to bin and type make
+Run: Type './a'
+
+To run a cppcheck type 'make cppcheck'

@@ -1,0 +1,137 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "funcPointers.h"
+#include "heap.h"
+
+void print(Heap *heap);
+
+int main()
+{
+
+	Heap * heap = createHeap(100,MAX_HEAP,destroyData,printNode,compare);
+	printf("banana\n");
+	
+	int* input=(int*)malloc(sizeof(int));
+	printf("Make an input\n:");
+	scanf("%d",input);
+	
+	int* second=(int*)malloc(sizeof(int));
+        printf("Make an input\n:");
+        scanf("%d",second);
+	
+        int* third=(int*)malloc(sizeof(int));
+        printf("Make an input\n:");
+        scanf("%d",third);
+
+	int* fourth=(int*)malloc(sizeof(int));
+        printf("Make an input\n:");
+        scanf("%d",fourth);
+        
+	int* five=(int*)malloc(sizeof(int));;
+        printf("Make an input\n:");
+        scanf("%d",five);
+
+        int* six=(int*)malloc(sizeof(int));;
+        printf("Make an input\n:");
+        scanf("%d",six);
+
+	int* seven=(int*)malloc(sizeof(int));
+        printf("Make an input\n:");
+        scanf("%d",seven);
+        
+	int* eight=(int*)malloc(sizeof(int));
+
+        printf("Make an input\n:");
+        scanf("%d",eight);
+
+        int* nine=(int*)malloc(sizeof(int));
+        printf("Make an input\n:");
+        scanf("%d",nine);
+
+        int* ten=(int*)malloc(sizeof(int));
+        printf("Make an input\n:");
+        scanf("%d",ten);
+        
+	int* eleven=(int*)malloc(sizeof(eleven));
+
+        printf("Make an input\n:");
+        scanf("%d",eleven);
+
+        int* twelve=(int*)malloc(sizeof(int));
+
+        printf("Make an input\n:");
+        scanf("%d",twelve);
+
+
+
+
+	insertHeapNode(heap,input);
+	print(heap);
+	printf("**************************\n\n");
+	
+	insertHeapNode(heap, second);
+        print(heap);
+        printf("**************************\n\n");
+
+	insertHeapNode(heap,third);
+        print(heap);
+        printf("**************************\n\n");
+
+        insertHeapNode(heap,fourth);
+        print(heap);
+        printf("**************************\n\n");
+
+        insertHeapNode(heap, five);
+        print(heap);
+        printf("**************************\n\n");
+
+        insertHeapNode(heap,six);
+        print(heap);
+        printf("**************************\n\n");
+
+	insertHeapNode(heap,seven);
+        print(heap);
+        printf("**************************\n\n");
+
+        insertHeapNode(heap,eight);
+        print(heap);
+        printf("**************************\n\n");
+
+        insertHeapNode(heap,nine);
+        print(heap);
+        printf("**************************\n\n");
+
+        insertHeapNode(heap,ten);
+        print(heap);
+        printf("**************************\n\n");
+
+        insertHeapNode(heap,eleven);
+        print(heap);
+        printf("**************************\n\n");
+
+	insertHeapNode(heap,twelve);
+        print(heap);
+        printf("**************************\n\n");
+
+
+	return 0;
+}
+
+
+void print(Heap *heap)
+{
+     int i=0;
+        while(heap->hArray[i] != NULL)
+        {
+             Node *t=heap->hArray[i];
+             int we = *(int*)t->data;
+
+             printf(" %d ",we);
+             i++;
+
+        }
+
+
+
+}

@@ -1,0 +1,16 @@
+
+/**************************
+
+Name: Safwan Hossain
+ID: 0918742
+email: safwan@uoguelph.ca
+
+
+*************************/
+
+==Compiling The Program==
+use 'make' to compile the program. 
+
+==Running the program==
+To run the program execute the binary file 'bin/a' created in the bin folder from make
+

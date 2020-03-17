@@ -1,0 +1,136 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "funcPointers.h"
+#include "heap.h"
+
+void reheapify(Heap *heap, Node*newNode);
+int posParentNode(Heap *heap, Node*newNode, int *i);
+
+
+Heap *createHeap(size_t initialSize,
+	HEAP_TYPE htype, 
+	void (*destroyDataFP)(void *data),
+	void (*printNodeFP)(void *toBePrinted),
+	int (*compareFP)(const void *first, const void *second))
+{
+	Heap * heap = (Heap*)malloc(sizeof(Heap));
+	
+	heap->sizeofArray = &initialSize;
+
+	heap->hArray=(Node**)malloc(sizeof(Node)* (*(heap->sizeofArray)));//array of nodes
+
+	//NULL memory
+	for(int i =0; i<(sizeof(Node)* (*(heap->sizeofArray))); i++)
+	{
+		heap->hArray[i]=NULL;
+
+	}
+
+	heap->lastPosition=NULL;//useful to find out where to insert the next value
+	heap->type=htype;
+	heap->destroyData=destroyDataFP;
+	heap->printNode=printNodeFP;
+	heap->compare=compareFP;
+
+	return heap;
+}
+
+Node *createHeapNode(void *data)
+{
+	Node* new =(Node*)malloc(sizeof(Node));
+	new->parent=NULL;
+	new->data=data;
+cd 
+	return new;
+}
+
+void insertHeapNode(Heap *heap, void *data)
+{
+	Node*new=createHeapNode(data);
+
+	if (heap == NULL)
+	{
+		return;
+
+	}
+	else if (heap !=NULL && heap->type == MAX_HEAP)
+	{
+		if(heap->hArray[0] == NULL)/*if root is empty*/
+		{
+			heap->hArray[0]=new;
+			heap->lastPosition=new->left;
+			return;
+
+		}
+		else
+		{
+			int i=0;
+			while(heap->hArray[i] != NULL)//find location in heap to insert
+			{
+				i++;
+			}
+			heap->hArray[i]=new;
+
+			reheapify(heap,new);
+
+
+		}
+
+
+	}
+
+
+
+}
+
+
+void reheapify (Heap *heap, Node*newNode)
+{	int s=0;
+	int i=0;
+	
+	s = posParentNode(heap, newNode,&i);
+	
+	Node *parentNode=heap->hArray[s];
+
+	if(heap->type == MAX_HEAP)
+	{
+		while(compare(newNode->data,parentNode->data) == 1)//swap if new node data is greater than parent node data
+		{
+
+			Node*temp=newNode;
+			heap->hArray[i]=parentNode;//set the place of newNode to parentNode
+			heap->hArray[s]=temp;//set to the place parentNode to newNode
+
+			s=posParentNode(heap, newNode,&i);
+
+		}
+
+	}
+
+	return;
+
+}
+
+int posParentNode(Heap *heap, Node*newNode, int *i)
+{
+	*i=0;
+	while(heap->hArray[*i] != newNode)//find the location of newNode in heap
+	{
+		*i = *i+1;
+	}
+	/*If statements to figure out parent nodes*/
+	if (*i%2 != 0 )//odd number
+	{
+		*i=(*i-1)/2;//index of parentNode if the postion in the array is odd
+		return *i;
+		
+	}
+	else
+	{
+		*i=(*i-2)/2;//index of parentNode if the postion in the array is odd
+		return *i;
+
+	}
+
+}

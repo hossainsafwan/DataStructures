@@ -1,0 +1,4 @@
+Known Limitations:
+
+1. insertSorted only works when used from beginning
+2. Testing file will only work with integers
