@@ -1,7 +1,5 @@
 # /*
 # Name: Safwan Hossain
-# Student ID: 0918742
-# Email: safwan@uoguelph.ca
 CC          =	gcc
 # Flags that are sent to the compiler  change the std if you wish
 

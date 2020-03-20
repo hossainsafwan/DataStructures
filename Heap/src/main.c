@@ -1,9 +1,6 @@
 /**************************
 
 Name: Safwan Hossain
-ID: 0918742
-email: safwan@uoguelph.ca
-
 
 *************************/
 #include <stdio.h>

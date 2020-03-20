@@ -1,7 +1,5 @@
 /*
 Name: Safwan Hossain
-Student ID: 0918742
-Email: safwan@uoguelph.ca
 */
 #include <stdio.h>
 #include <stdlib.h>

@@ -1,7 +1,5 @@
 /********************************
 Name: Safwan Hossain
-ID: 0918742
-email: safwan@uoguelph.ca
 ***********************************/
 #ifndef __Func_Pointers__
 #define __Func_Pointers__
